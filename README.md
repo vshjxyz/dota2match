@@ -1,4 +1,4 @@
-dota2match
+Dota 2 match
 ==========
 
-just a node app to make you do better picks
+*The readme will be there when the app will actually do something*
