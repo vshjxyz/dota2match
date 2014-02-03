@@ -13,5 +13,5 @@ results
 
 npm-debug.log
 node_modules
-public/images/heroes
+public/images/heroes/*.png
 .idea

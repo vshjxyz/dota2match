@@ -34,7 +34,7 @@ exports.syncDota2Heroes = function (language) {
                     };
                 });
 
-                db.dota2Hero.count({}, function( err, count){
+                db.dota2Hero.count({}, function(err, count){
                     if (count < heroes.length) {
                         console.log('Removing all the heroes from the database');
                         db.dota2Hero.remove({}, function (err) {
