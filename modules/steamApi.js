@@ -75,20 +75,19 @@ exports.syncDota2HeroesImages = function (option) {
         if (collection.length > 0) {
             var downloadImage = function (index) {
                 var hero = collection[index];
-                var imgPath = __dirname + '/../public/images/heroes/' + hero.name + '.png';
-                if (!fs.existsSync(imgPath)) {
-                    console.log('Downloading image for the hero: ' + hero.eng_name);
-                    // Performing the real download
-                    http.get(hero.img_partial_url + '_' + option + '.png', imgPath, function (err, result) {
-                        if (err) {
-                            console.error('Error during the download of the image for the hero: ' + hero.eng_name);
-                        } else {
-                            downloadImage(index + 1);
-                        }
-                    });
-
-                } else {
-                    console.log('The image for the hero "' + hero.eng_name + '" is already there');
+                if (hero != null) {
+                    var imgPath = __dirname + '/../public/images/heroes/' + hero.name + '.png';
+                    if (!fs.existsSync(imgPath)) {
+                        console.log('Downloading image for the hero: ' + hero.eng_name);
+                        // Performing the real download
+                        http.get(hero.img_partial_url + '_' + option + '.png', imgPath, function (err, result) {
+                            if (err) {
+                                console.error('Error during the download of the image for the hero: ' + hero.eng_name);
+                            }
+                        });
+                    } else {
+                        console.log('The image for the hero "' + hero.eng_name + '" is already there');
+                    }
                     downloadImage(index + 1);
                 }
             };
